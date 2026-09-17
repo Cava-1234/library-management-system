@@ -26,18 +26,18 @@ public class Library {
     }
 
     public Member getMember(int insertedId) {
-        for (int i = 0; i < memberList.size(); i++) {
-            if (memberList.get(i).getId() == insertedId) {
-                return memberList.get(i);
+        for (Member member : memberList) {
+            if (member.getId() == insertedId) {
+                return member;
             }
         }
         return null;
     }
 
     public Book getBook(int insertedId) {
-        for (int i = 0; i < bookList.size(); i++) {
-            if (bookList.get(i).getId() == insertedId) {
-                return bookList.get(i);
+        for (Book book : bookList) {
+            if (book.getId() == insertedId) {
+                return book;
             }
         }
         return null;
@@ -51,22 +51,22 @@ public class Library {
     }
 
     public boolean isAvailable(int insertedBookId) {
-        for (int i = 0; i < loanList.size(); i++) {
-            if (loanList.get(i).getBook().getId() == insertedBookId) {
+        for (Loan loan : loanList) {
+            if (loan.getBook().getId() == insertedBookId) {
                 return false;
             }
-        } return true;
+        }
+        return true;
     }
 
     public boolean loanBook(int insertedBookId, int insertedMemberId) {
-        if (getBook(insertedBookId) != null || getMember(insertedMemberId) != null); {
-            if(isAvailable(insertedBookId)) {
-                Loan loan = new Loan(getBook(insertedBookId), getMember(insertedMemberId), LocalDate.now());
-                addLoan(loan);
-                return true;
-            }
+        if (getBook(insertedBookId) != null || getMember(insertedMemberId) != null);
+        if(isAvailable(insertedBookId)) {
+            Loan loan = new Loan(getBook(insertedBookId), getMember(insertedMemberId), LocalDate.now());
+            addLoan(loan);
+            return true;
         }
-            return false;
+        return false;
         }
 
     public void returnBook(int insertedBookId){
@@ -78,7 +78,7 @@ public class Library {
                 bookExist = true;
             }
         }
-        if (bookExist ==false) {
+        if (!bookExist) {
             IO.println("Book is already in the library, or doesn't exist");
         }
     }

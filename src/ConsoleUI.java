@@ -1,6 +1,3 @@
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 public class ConsoleUI {
     final Library library;
 
@@ -48,29 +45,13 @@ public void run() {
     }
 
     private void showMenu() {
-        IO.println(String.format("""
+        IO.println("""
                 
                 1. Borrow book
                 2. Return book
                 3. Show all loans
                 0. End program
                 
-                """));
+                """);
     }
-
 }
-
-// public Library getBook(int insertedBookId, int insertedMemberId){
-//        return getBook(insertedBookId, insertedMemberId);
-//    }
-//
-//    public boolean loanBook(int insertedBookId, int insertedMemberId) {
-//        if (getBook(insertedBookId) != null || getMember(insertedMemberId) != null); {
-//            if(isAvailable(insertedBookId)) {
-//                Loan loan = new Loan(getBook(insertedBookId), getMember(insertedMemberId), LocalDate.now());
-//                addLoan(loan);
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
