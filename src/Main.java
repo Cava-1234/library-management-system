@@ -20,7 +20,7 @@ void main() {
     Member member7 = new Member("Ehrlich Bachmann", 777);
     Member member8 = new Member("Jian Yang", 888);
     Member member9 = new Member("Nelson Bighetti aka Big Head", 999);
-    Member member10 = new Member("Peter Gregory", 998);
+    Member member10 = new Member("Peter Gregory", 997);
 
     cLibrary.addBook(book1); cLibrary.addBook(book2); cLibrary.addBook(book3); cLibrary.addBook(book4);
     cLibrary.addBook(book5); cLibrary.addBook(book6);
