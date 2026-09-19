@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-
 public class Loan {
 
     final private Book book;
@@ -17,8 +16,8 @@ public class Loan {
         return book;
     }
 
-    public Member getMemberBorrowing(){
-        return memberBorrowing;
+    public int getMemberBorrowing(){
+        return memberBorrowing.getId();
     }
 
     public String toString(){
@@ -32,13 +31,6 @@ public class Loan {
 
     public boolean isOverdue(){
         return today.isAfter(borrowedDate.plusDays(14));
-        }
-
-    public LocalDate getDueDate(){
-        if(!(borrowedDate == null)) {
-            return borrowedDate.plusDays(14);
-        }
-        return null;
     }
 
 }

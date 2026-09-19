@@ -8,7 +8,6 @@ public class Member {
         this.memberId = memberId;
     }
 
-@Override
     public String toString() {
         return "Name: " + memberName + " (Borrow number: " + memberId + ")";
     }
@@ -16,4 +15,5 @@ public class Member {
     public int getId() {
         return memberId;
     }
+
 }

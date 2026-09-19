@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 public class Library {
 
     final ArrayList<Book> bookList;
@@ -43,10 +42,12 @@ public class Library {
         return null;
     }
 
-    public Loan getLoans() {
-        for (int i = 0; i < bookList.size(); i++) {
-                return loanList.get(i);
+    public Loan getLoan(int insertedId) {
+        for (Loan loan : loanList) {
+            if (loan.getMemberBorrowing() == insertedId) {
+                return loan;
             }
+        }
         return null;
     }
 
@@ -60,14 +61,15 @@ public class Library {
     }
 
     public boolean loanBook(int insertedBookId, int insertedMemberId) {
-        if (getBook(insertedBookId) != null || getMember(insertedMemberId) != null);
-        if(isAvailable(insertedBookId)) {
-            Loan loan = new Loan(getBook(insertedBookId), getMember(insertedMemberId), LocalDate.now());
-            addLoan(loan);
-            return true;
+        if (getBook(insertedBookId) != null || getMember(insertedMemberId) != null) ; {
+            if (isAvailable(insertedBookId)) {
+                Loan loan = new Loan(getBook(insertedBookId), getMember(insertedMemberId), LocalDate.now());
+                addLoan(loan);
+                return true;
+            }
+            return false;
         }
-        return false;
-        }
+    }
 
     public void returnBook(int insertedBookId){
     boolean bookExist = false;
@@ -84,12 +86,10 @@ public class Library {
     }
 
     public void findLoansByMemberId(int insertedMemberId) {
-        String booksLoanedByMember = "";
-        for(int i = 0; i < loanList.size(); i ++) {
-            if(insertedMemberId == loanList.get(i).getMemberBorrowing().getId()) {
-                booksLoanedByMember += loanList + "\n";
+        for (int i = 0; i < loanList.size(); i++) {
+            if (loanList.get(i).getMemberBorrowing() == insertedMemberId) {
+                IO.println(loanList.get(i));
             }
-            IO.println(booksLoanedByMember);
         }
     }
 
@@ -100,14 +100,5 @@ public class Library {
             completeBookList += book + "\n";
         }
         IO.println(completeBookList);
-    }
-
-    public void printMembers () {
-        IO.println("Library member list:" + "\n");
-        String completeMemberList = "";
-        for (Member member : memberList) {
-            completeMemberList += member + "\n";
-        }
-        IO.println(completeMemberList);
     }
 }

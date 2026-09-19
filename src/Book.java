@@ -1,4 +1,4 @@
-public class Book {
+public  class Book {
 
     final String authorName;
     final String title;
@@ -12,8 +12,6 @@ public class Book {
         this.iD = iD;
     }
 
-
-
     public String toString() {
         return String.format(""" 
                 Author: %s
@@ -26,8 +24,4 @@ public class Book {
     public int getId() {
         return iD;
     }
-
-
-
-
 }

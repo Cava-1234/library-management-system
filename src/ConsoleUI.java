@@ -5,11 +5,10 @@ public class ConsoleUI {
         this.library = library;
     }
 
-public void borrowBook() {
+    public void borrowBook() {
     library.printBooks();
     int insertedBookId = Integer.parseInt(IO.readln("Insert book ID: "));
     int insertedMemberId = Integer.parseInt(IO.readln("Insert member ID: "));
-
     if (library.loanBook(insertedBookId, insertedMemberId)) {
         IO.println("You have succesfully borrowed " + library.getBook(insertedBookId));
     } else {
@@ -17,26 +16,24 @@ public void borrowBook() {
     }
 }
 
-public void returnBook1(){
+    public void returnBook(){
     int insertedBookId = Integer.parseInt(IO.readln("Insert book ID: "));
-
     library.returnBook(insertedBookId);
 }
 
-public void showLoans() {
-        int insertedMemberId = Integer.parseInt(IO.readln("Insert member ID"));
+    public void showLoans() {
+        int insertedMemberId = Integer.parseInt(IO.readln("Insert member ID: "));
         library.findLoansByMemberId(insertedMemberId);
 }
 
-
-public void run() {
+    public void run() {
         boolean running = true;
         while (running) {
             showMenu();
             int choice = Integer.parseInt(IO.readln("Choose option by inserting number: "));
             switch (choice) {
                 case 1 -> borrowBook();
-                case 2 -> returnBook1();
+                case 2 -> returnBook();
                 case 3 -> showLoans();
                 case 0 -> running = false;
                 default -> IO.println("Invalid choice. Insert menu number to continue");
