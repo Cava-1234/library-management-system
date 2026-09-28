@@ -10,7 +10,7 @@ void main() {
     Book book4 = new Book("Frank Herbert", "'Dune'", "9780441005901", 4);
     Book book5 = new Book("Isaac Asimov", "'Foundation'", "9780553293357", 5);
     Book book6 = new Book("Robert A. Heinlein", "'Starship troopers'", "9783404240012", 6);
-    Book book7 = new Book("Herbert George Wells", "'The war of the Worlds'", "9780866118705", 6);
+    Book book7 = new Book("Herbert G. Wells", "'The war of the Worlds'", "9780866118705", 6);
 
 
     Member member1 = new Member("Richard Hendricks", 111);
